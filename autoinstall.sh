@@ -29,7 +29,7 @@ npm install > /dev/null
 echo "Creating folder $TARGET_DIR"
 mkdir -p $TARGET_DIR
 echo "Moving $E_DIR_OUT/iApache2-master/ to $TARGET_DIR/"
-mv -u $E_DIR_OUT/iApache2-master/* $TARGET_DIR/.
+mv -f $E_DIR_OUT/iApache2-master/* $TARGET_DIR/.
 
 cd $TARGET_DIR
 echo "Modifying template service file and saving to $SERVICES_DIR/iApache2.service "
