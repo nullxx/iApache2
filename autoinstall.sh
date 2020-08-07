@@ -19,7 +19,7 @@ TARGET_DIR=/opt/iApache2
 SERVICES_DIR=/etc/systemd/system
 
 echo "Downloading repository data"
-wget -q -O $D_DIR_OUT "$REPO_URL" 
+wget -q -O $D_DIR_OUT "$REPO_URL"
 mkdir -p $E_DIR_OUT
 tar -zxf $D_DIR_OUT -C $E_DIR_OUT
 cd $E_DIR_OUT/iApache2-master
@@ -30,7 +30,8 @@ echo "Creating folder $TARGET_DIR"
 mkdir -p $TARGET_DIR
 echo "Moving $E_DIR_OUT/iApache2-master/ to $TARGET_DIR/"
 if [ -n "$(ls -A $TARGET_DIR)" ]; then
-   rm -rf $TARGET_DIR/*
+    echo "Removing older files at $TARGET_DIR"
+    rm -rf $TARGET_DIR/*
 fi
 mv $E_DIR_OUT/iApache2-master/* $TARGET_DIR/.
 
