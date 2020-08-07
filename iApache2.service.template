@@ -1,0 +1,9 @@
+[Unit]
+Description=APACHE2 GUI             
+
+[Service]
+Type=simple
+ExecStart=cd <P_PATH> && npm start
+
+[Install]
+WantedBy=multi-user.target
