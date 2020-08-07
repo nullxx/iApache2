@@ -3,7 +3,7 @@ Description=APACHE2 GUI
 
 [Service]
 Type=simple
-ExecStart=/bin/bash <P_PATH>/.run.sh
+ExecStart=/bin/bash <P_PATH>/run.sh
 
 [Install]
 WantedBy=multi-user.target
