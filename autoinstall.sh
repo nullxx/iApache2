@@ -30,6 +30,8 @@ echo "Creating folder $TARGET_DIR"
 mkdir -p $TARGET_DIR
 echo "Moving $E_DIR_OUT/iApache2-master/ to $TARGET_DIR/"
 if [ -n "$(ls -A $TARGET_DIR)" ]; then
+    echo "Stopping old service if active"
+    sudo systemctl stop iApache2
     echo "Removing older files at $TARGET_DIR"
     rm -rf $TARGET_DIR/*
 fi
