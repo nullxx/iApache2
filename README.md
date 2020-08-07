@@ -25,7 +25,7 @@ Default PORT: `3000`
 
 ## Uninstall
 
-One command install 
+One command uninstall 
 
 
     sudo wget -q -O - https://github.com/nullxx/iApache2/raw/master/autouninstall.sh | bash
