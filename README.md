@@ -19,7 +19,7 @@ One command install
 
     sudo wget -q -O - https://github.com/nullxx/iApache2/raw/master/autoinstall.sh | bash
 
-Program is stored at /opt/iApache2
+Program is stored at `/opt/iApache2`
 
 Default PORT: `3000`
 
