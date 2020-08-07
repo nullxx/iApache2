@@ -1,5 +1,5 @@
 const os = require('os');
-const availableCommands = require('./availableCommands');
+const availableCommands = require('./AvailableCommands');
 
 module.exports = {
     getCommand: (cmd) => {

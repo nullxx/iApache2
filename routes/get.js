@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Apache = require('../Apache')
+const Apache = require('../src/Apache')
 /* GET home page. */
 router.get('/', function (req, res, next) {
   Apache.getModules()

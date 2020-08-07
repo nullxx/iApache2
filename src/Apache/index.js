@@ -1,4 +1,4 @@
-const { executeCommand } = require("../commands");
+const { executeCommand } = require("../Command");
 const { getCommand } = require("../Utils");
 module.exports = class Apache {
     static getModules = () => {
