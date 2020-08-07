@@ -24,7 +24,7 @@ mkdir -p $E_DIR_OUT
 tar -zxf $D_DIR_OUT -C $E_DIR_OUT
 cd $E_DIR_OUT/iApache2-master
 echo "Running npm install at $E_DIR_OUT/iApache2-master"
-npm install -q
+npm install > /dev/null
 
 echo "Creating folder $TARGET_DIR"
 mkdir -p $TARGET_DIR
