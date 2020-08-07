@@ -1141,7 +1141,7 @@
     if (errors.length > 0) {
       for (let i = 0; i < errors.length; i++) {
         const error = errors[i];
-        toastr.error(error.toString())
+        if (error.length > 0) toastr.error(error)
       }
     }
     function searchVH(input) {
