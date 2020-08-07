@@ -24,7 +24,7 @@
     <div class="yoo-main-header">
       <div class="yoo-main-header-in">
         <div class="yoo-main-header-left">
-          <a href="/" class="yoo-logo-link yoo-light-logo"><h3 style="color: white; margin: 0;">iApache2</h1></a>
+          <a href="/" class="yoo-logo-link yoo-light-logo"><h3 style="color: white; margin: 0;">iApache2</h3></a>
           <!-- For Site Title -->
           <!-- <span class="yoo-site-title">
             <a href="/">Logo</a>
@@ -402,7 +402,7 @@
                     <div class="yoo-medias yoo-style1 yoo-type1">
                       <div class="yoo-media-img">
                         <div class="yoo-box-md yoo-radious10 yoo-img-box yoo-purple-box"><img
-                            src="assets/img/module.png" alt=""></div>
+                            src="assets/img/module.png" alt="Module image"></div>
                       </div>
                       <div class="yoo-media-meta">
                         <div class="yoo-height-b5 yoo-height-lg-b5"></div>
@@ -941,17 +941,17 @@
                   <li>
                     <div class="yoo-medias yoo-style1">
                       <div class="yoo-media-img">
-                        <img src="assets/img/virtualhost.png"
+                        <img src="assets/img/virtualhost.png" alt="Virtualhost image">
                       </div>
                       <div class="yoo-media-meta">
-                        <h2 class="yoo-media-title yoo-margin-bottom-0" id="domain"><%= virtualhosts[i].domain %></h2>
-                        <div class="yoo-media-subtitle" id="vhConfigPath"><%= virtualhosts[i].vhConfigPath %></div>
+                        <h2 class="yoo-media-title yoo-margin-bottom-0"><%= virtualhosts[i].domain %></h2>
+                        <div class="yoo-media-subtitle"><%= virtualhosts[i].vhConfigPath %></div>
                       </div>
                       <div style="display: flex; justify-content: flex-end;">
                         <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-danger btn-sm col-sm-2"
                           onclick="disableVH('<%= virtualhosts[i].fileName %>')">Disable</button>
                       </div>
-                      <span class="yoo-media-tag" id="port"><%= virtualhosts[i].port %></span>
+                      <span class="yoo-media-tag"><%= virtualhosts[i].port %></span>
                     </div>
                   </li>
                   <% } %>
@@ -1128,26 +1128,7 @@
       </div>
     </footer>
   </div><!-- .yoo-content -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- Required Scripts -->
   <script src="assets/js/jquery-1.12.4.min.js"></script>
@@ -1160,7 +1141,7 @@
     if (errors.length > 0) {
       for (let i = 0; i < errors.length; i++) {
         const error = errors[i];
-        toastr.error(JSON.stringify(error))
+        toastr.error(error.toString())
       }
     }
     function searchVH(input) {
