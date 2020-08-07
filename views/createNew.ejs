@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Meta Tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="author" content="YooKits" />
+  <!-- Page Title -->
+  <title>Create new</title>
+  <!-- Favicon Icon -->
+  <link rel="icon" href="assets/img/favicon.png">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/jqvmap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/iDashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+
+<body>
+  <div class="yoo-height-b60 yoo-height-lg-b60"></div>
+  <header class="yoo-header yoo-style1 yoo-sticky-menu">
+    <div class="yoo-main-header">
+      <div class="yoo-main-header-in">
+        <div class="yoo-main-header-left">
+          <a href="/" class="yoo-logo-link yoo-light-logo"><h3 style="color: white; margin: 0;">iApache2</h1></a>
+            <!-- For Site Title -->
+          <!-- <span class="yoo-site-title">
+            <a href="/">Logo</a>
+          </span> -->
+        </div>
+      </div>
+    </div>
+  </header><!-- .yoo-header -->
+  <div class="yoo-sidebarheader-toggle">
+    <div class="yoo-button-bar1"></div>
+    <div class="yoo-button-bar2"></div>
+    <div class="yoo-button-bar3"></div>
+  </div><!-- .yoo-sidebarheader-toggle -->
+  <div class="yoo-sidebarheader">
+    <div class="yoo-sidebarheader-in" data-scrollbar>
+      <div class="yoo-sidebar-nav">
+        <ul class="yoo-sidebar-nav-list yoo-mp0">
+          <li>
+            <a href="/">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="layers"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Dashboard</span>
+              </span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/createNew">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="create-outline"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Create VirtualHost</span>
+              </span>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="settings.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="create"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Profile Settings</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="calender.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="calendar"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Calender</span>
+              </span>
+            </a>
+          </li>
+          <li class="yoo-sidebar-has-children">
+            <a href="#">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="person-circle"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Sign In/Sign Up</span>
+              </span>
+            </a>
+            <ul class="yoo-sidebar-nav-dropdown">
+              <li>
+                <a href="login.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Log In</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="signup.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Sign Up</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="alerts.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="notifications"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Notifications</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="buttons.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="albums"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Buttons</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="tables.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="cube"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Table</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="forms.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="duplicate"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Forms</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="pagination.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="trail-sign"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Pagination</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="typography.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="text"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Typography</span>
+              </span>
+            </a>
+          </li>
+          <li class="yoo-sidebar-has-children">
+            <a href="#">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="cloud"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Components</span>
+              </span>
+            </a>
+            <ul class="yoo-sidebar-nav-dropdown">
+              <li>
+                <a href="badge.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Badge</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="breadcrumb.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Breadcrumb</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="card.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Card</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="carousel.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Carousel</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="dropdowns.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Dropdowns</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="list-group.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">List Group</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="modal.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Modal</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="progress.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Progress</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="tooltips.html">
+                  <span class="yoo-sidebar-link-title">
+                    <span class="yoo-sidebar-link-text">Tooltips</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="icons.html" target="_blank">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="archive"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Icons</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="svgmaps.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="map"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">SVG Maps</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="documentation.html">
+              <span class="yoo-sidebar-link-title">
+                <span class="yoo-sidebar-link-icon yoo-style1">
+                  <ion-icon name="reader"></ion-icon>
+                </span>
+                <span class="yoo-sidebar-link-text">Documentation</span>
+              </span>
+            </a>
+          </li> -->
+        </ul><!-- .yoo-sidebar-nav-list -->
+      </div>
+    </div>
+  </div>
+
+  <div class="yoo-content yoo-style1">
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container-fluid">
+      <div class="yoo-uikits-heading">
+        <h2 class="yoo-uikits-title">Create new virtualhost</h2>
+      </div>
+    </div>
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="yoo-card yoo-style1">
+            <div class="yoo-card-heading">
+              <div class="yoo-card-heading-left">
+                <h2 class="yoo-card-title">NEW VH</h2>
+              </div>
+
+            </div>
+            <div class="yoo-card-body">
+              <div class="yoo-padd-lr-20">
+                <div class="yoo-height-b20 yoo-height-lg-b20"></div>
+                <form method="POST" onsubmit="createVH(); return false;">
+                  <div class="form-group level-up active1">
+                    <label for="virtualhostContent">VIRTUALHOST</label>
+                    <textarea class="form-control" id="virtualhostContent" rows="6"
+                      style="font-family: 'Courier New', Courier, monospace" required><VirtualHost *:80>
+    DocumentRoot "/var/www/example"
+    ServerName www.example.org
+
+    # Other directives here
+</VirtualHost></textarea>
+                    <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+
+
+                  </div>
+                  <div class="col-md-4">
+                    <p>Save to</p>
+                    <div class="form-group level-up">
+                      <label for="inputFileName"
+                        style="font-family: 'Courier New', Courier, monospace; font-size: 12px;">/etc/apache2/sites-available/</label>
+                      <input type="text" class="form-control" id="inputFileName"
+                        style="font-family: 'Courier New', Courier, monospace;" onkeyup="processSavePath(this)"
+                        required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary">Save to <code
+                          id="savePath">/etc/apache2/sites-available/<code id="saveFileName"></code>.conf</code></button>
+                    </div>
+                  </div>
+
+                </form>
+                <div class="yoo-height-b5 yoo-height-lg-b5"></div>
+              </div>
+
+            </div>
+          </div><!-- .yoo-card -->
+        </div>
+
+      </div>
+    </div>
+    <div class="yoo-height-b30 yoo-height-lg-b30"></div>
+    <footer class="yoo-footer yoo-style1">
+      <div class="container-fluid">
+        <div class="yoo-footer-content">
+          <div class="yoo-copyride">Made with coffee &amp; love by <a href="https://nullx.me/"
+              target="_blank">nullx</a> ©All rights reserved.</div>
+          <!-- <ul class="yoo-footer-nav yoo-mp0 yoo-flex">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </footer>
+  </div><!-- .yoo-content -->
+
+  <!-- Required Scripts -->
+  <script src="assets/js/jquery-1.12.4.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/iDashboard.js?v=0.06"></script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="assets/js/notify.js"></script>
+  <script>
+    function processSavePath(input) {
+      document.getElementById("saveFileName").textContent = input.value
+    }
+    function createVH() {
+      var http = new XMLHttpRequest();
+      var url = '/createVH.post';
+      var params = `path=${document.getElementById("savePath").textContent}&vhContent=${document.getElementById("virtualhostContent").textContent}`;
+      http.open('POST', url, true);
+
+      //Send the proper header information along with the request
+      http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      http.onreadystatechange = function () {//Call a function when the state changes.
+        if (http.readyState == 4 && http.status == 200) {
+          proccessOutput(JSON.parse(http.responseText))
+        }
+      }
+      http.send(params);
+    }
+    function proccessOutput(obj) {
+      if (obj.err) {
+        toastr.error(JSON.stringify(obj.err))
+      } else if (obj.code == 0 && obj.msg) {
+        toastr.success(obj.msg)
+      }
+    }
+  </script>
+</body>
+
+</html>
