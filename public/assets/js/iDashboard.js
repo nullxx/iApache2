@@ -193,80 +193,8 @@
     $('.yoo-sticky-footer').parents('.yoo-content').append('<div class="yoo-height-b40 yoo-height-lg-b0"></div>');
   }
 
-  /*--------------------------------------------------------------
-    7. Nice Scroll
-  --------------------------------------------------------------*/
-  function nicescrollInt() {
-    Scrollbar.initAll();
-  }
 
-  /*--------------------------------------------------------------
-    8. Calendar
-  --------------------------------------------------------------*/
-  function calendarInt() {
-    if ($.exists("#yoo-calendar")) {
-      $('#yoo-calendar').fullCalendar({
-        header: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'month,basicWeek,basicDay'
-        },
-        defaultDate: '2019-01-12',
-        navLinks: true, // can click day/week names to navigate views
-        editable: true,
-        eventLimit: true, // allow "more" link when too many events
-        events: [{
-            title: 'All Day Event',
-            start: '2019-01-01T20:00:00'
-          },
-          {
-            title: 'Long Event',
-            start: '2019-01-07T10:00:00',
-            end: '2019-01-08T16:00:00'
-          },
-          {
-            title: 'Repeating Event',
-            start: '2019-01-10T16:00:00'
-          },
-          {
-            title: 'Conference',
-            start: '2019-01-10T09:00:00'
-          },
-          {
-            title: 'Meeting',
-            start: '2019-01-12T10:30:00',
-            end: '2019-01-12T12:30:00'
-          },
-          {
-            title: 'Lunch',
-            start: '2019-01-12T12:00:00'
-          },
-          {
-            title: 'Meeting',
-            start: '2019-01-12T14:30:00'
-          },
-          {
-            title: 'Happy Hour',
-            start: '2019-01-12T17:30:00'
-          },
-          {
-            title: 'Dinner',
-            start: '2019-01-01T14:00:00',
-            end: '2019-01-02T14:30:00'
-          },
-          {
-            title: 'Birthday Party',
-            start: '2019-01-13T07:00:00'
-          },
-          {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2019-01-28T08:00:00'
-          }
-        ]
-      });
-    }
-  }
+
 
 
 })(jQuery); // End of use strict
