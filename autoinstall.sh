@@ -6,6 +6,7 @@ if [ "${UID}" -ne 0 ]; then
 fi
 
 REPO_URL=https://github.com/nullxx/iApache2/archive/master.tar.gz
+
 TMP_DIR=/tmp
 
 D_FILE_OUT=iApache2.tar.gz
@@ -20,10 +21,10 @@ SERVICES_DIR=/etc/systemd/system
 echo "Downloading repository data"
 wget -q -O $D_DIR_OUT "$REPO_URL" 
 mkdir -p $E_DIR_OUT
-tar -zxvf $D_DIR_OUT -C $E_DIR_OUT
+tar -zxf $D_DIR_OUT -C $E_DIR_OUT
 cd $E_DIR_OUT/iApache2-master
 echo "Running npm install at $E_DIR_OUT/iApache2-master"
-npm install
+npm install -q
 
 echo "Creating folder $TARGET_DIR"
 mkdir -p $TARGET_DIR
