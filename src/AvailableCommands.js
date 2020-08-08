@@ -77,7 +77,7 @@ module.exports = {
         },
         darwin: {
             cmd: "apachectl",
-            args: ["reload"]
+            args: ["restart"]
         },
         other: {
             cmd: "systemctl",

@@ -12,7 +12,6 @@ router.post('/disableVH.post', function (req, res, next) {
 router.post('/createVH.post', function (req, res, next) {
   const path = req.body.path;
   const vhContent = req.body.vhContent;
-
   Apache.createVH(path, vhContent)
     .then(result => {
       res.send(result)

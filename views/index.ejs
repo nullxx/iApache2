@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="author" content="YooKits" />
   <!-- Page Title -->
-  <title>Dashboard</title>
+  <title><%= config.mainTitle %> | <%= config.pages.main.title %></title>
   <!-- Favicon Icon -->
   <link rel="icon" href="assets/img/favicon.png" />
   <!-- CSS -->
@@ -24,8 +24,8 @@
     <div class="yoo-main-header">
       <div class="yoo-main-header-in">
         <div class="yoo-main-header-left">
-          <a href="/" class="yoo-logo-link yoo-light-logo">
-            <h3 style="color: white; margin: 0;">iApache2</h3>
+          <a href="<%= config.pages.main.path %>" class="yoo-logo-link yoo-light-logo">
+            <h3 style="color: white; margin: 0;"><%= config.mainTitle %></h3>
           </a>
         </div>
       </div>
@@ -43,22 +43,22 @@
       <div class="yoo-sidebar-nav">
         <ul class="yoo-sidebar-nav-list yoo-mp0">
           <li class="active">
-            <a href="/">
+            <a href="<%= config.pages.main.path %>" class="page">
               <span class="yoo-sidebar-link-title">
                 <span class="yoo-sidebar-link-icon yoo-style1">
                   <ion-icon name="layers"></ion-icon>
                 </span>
-                <span class="yoo-sidebar-link-text">Dashboard</span>
+                <span class="yoo-sidebar-link-text"><%= config.pages.main.title %></span>
               </span>
             </a>
           </li>
           <li>
-            <a href="/createNew">
+            <a href="<%= config.pages.createNew.path %>" class="page">
               <span class="yoo-sidebar-link-title">
                 <span class="yoo-sidebar-link-icon yoo-style1">
                   <ion-icon name="create-outline"></ion-icon>
                 </span>
-                <span class="yoo-sidebar-link-text">Create VirtualHost</span>
+                <span class="yoo-sidebar-link-text"><%= config.pages.createNew.title %></span>
               </span>
             </a>
           </li>
@@ -79,25 +79,25 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-6 col-sm-6">
-          <div class="yoo-iconbox yoo-style1 yoo-color1 yoo-blue-bg yoo-blue-shadow">
+          <div class="<%= config.pages.main.body.initialCards.modules.style.class %>">
             <div class="yoo-iconbox-in">
-              <div class="yoo-iconbox-title">MODULES LOADED</div>
-              <div class="yoo-iconbox-number"><%= modules.length %></div>
+              <div class="yoo-iconbox-title"><%= config.pages.main.body.initialCards.modules.title %></div>
+              <div class="yoo-iconbox-number"><%= data.modules.length %></div>
               <!-- <div class="yoo-iconbox-footer"><span class="yoo-iconbox-percentage"><ion-icon name="caret-up"></ion-icon>17%</span>Since last week</div> -->
               <div class="yoo-iconbox-icon">
-                <ion-icon name="albums"></ion-icon>
+                <ion-icon name="<%= config.pages.main.body.initialCards.modules.style.icon %>"></ion-icon>
               </div>
             </div>
           </div>
           <div class="yoo-height-b30 yoo-height-lg-b30"></div>
         </div>
         <div class="col-xl-6 col-sm-6">
-          <div class="yoo-iconbox yoo-style1 yoo-color1 yoo-gray-bg yoo-gray-shadow">
+          <div class="<%= config.pages.main.body.initialCards.virtualhosts.style.class %>">
             <div class="yoo-iconbox-in">
-              <div class="yoo-iconbox-title">VIRTUALHOSTS</div>
-              <div class="yoo-iconbox-number"><%= virtualhosts.length %></div>
+              <div class="yoo-iconbox-title"><%= config.pages.main.body.initialCards.virtualhosts.title %></div>
+              <div class="yoo-iconbox-number"><%= data.virtualhosts.length %></div>
               <div class="yoo-iconbox-icon">
-                <ion-icon name="layers"></ion-icon>
+                <ion-icon name="<%= config.pages.main.body.initialCards.virtualhosts.style.icon %>"></ion-icon>
               </div>
             </div>
           </div>
@@ -105,20 +105,22 @@
         </div>
         <!-- .col -->
         <div class="col-xl-12 col-sm-12">
-          <div class="yoo-iconbox yoo-style1 yoo-color1 yoo-light-blue-bg yoo-light-blue-shadow">
+          <div class="<%= config.pages.main.body.initialCards.status.style.class %>">
             <div class="yoo-iconbox-in">
-              <div class="yoo-iconbox-title">STATUS</div>
+              <div class="yoo-iconbox-title"><%= config.pages.main.body.initialCards.status.title %></div>
               <div class="yoo-iconbox-number" style="font-size: 20px;">
-                <%= status || '-' %>
+                <%= data.status || '-' %>
               </div>
               <div class="yoo-iconbox-footer">
-                <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-warning"
+                <button type="button" ripple="ripple" ripple-color="#fff"
+                  class="<%= config.pages.main.body.initialCards.status.body.reloadApache2BTN.style.class %>"
                   onclick="reloadApache()">
-                  <ion-icon name="reload-outline"></ion-icon> Reload apache2
+                  <ion-icon name="<%= config.pages.main.body.initialCards.status.body.reloadApache2BTN.style.icon %>">
+                  </ion-icon> <%= config.pages.main.body.initialCards.status.body.reloadApache2BTN.title %>
                 </button>
               </div>
               <div class="yoo-iconbox-icon">
-                <ion-icon name="file-tray"></ion-icon>
+                <ion-icon name="<%= config.pages.main.body.initialCards.status.style.icon %>"></ion-icon>
               </div>
             </div>
           </div>
@@ -132,28 +134,31 @@
               <div class="yoo-card-heading-left">
                 <h2 class="yoo-card-title">
                   <span class="yoo-card-title-icon yoo-purple-bg">
-                    <ion-icon name="flask" role="img" class="md hydrated" aria-label="flask"></ion-icon>
-                  </span>MODULES LOADED
+                    <ion-icon name="<%= config.pages.main.body.bigCards.loadedModules.style.icon %>" role="img"
+                      class="md hydrated" aria-label="<%= config.pages.main.body.bigCards.loadedModules.style.icon %>">
+                    </ion-icon>
+                  </span><%= config.pages.main.body.bigCards.loadedModules.title %>
                 </h2>
               </div>
             </div>
             <div class="yoo-card-body">
               <div class="yoo-padd-lr-20">
                 <div class="yoo-height-b20 yoo-height-lg-b20"></div>
-                <ul class="yoo-list-group yoo-style1 yoo-type1 yoo-mp0">
-                  <% for(var i = 0; i < modules.length; i++) { %> <% const
-                    badge = modules[i].match(/\(([^)]+)\)/)[1] %>
+                <ul class="<%= config.pages.main.body.bigCards.loadedModules.style.class %>">
+                  <% for(var i = 0; i < data.modules.length; i++) { %> <% const
+                    badge = data.modules[i].match(/\(([^)]+)\)/)[1] %>
                   <li>
-                    <div class="yoo-medias yoo-style1 yoo-type1">
+                    <div class="<%= config.pages.main.body.bigCards.loadedModules.body.items.style.class %>">
                       <div class="yoo-media-img">
                         <div class="yoo-box-md yoo-radious10 yoo-img-box yoo-purple-box">
-                          <img src="assets/img/module.png" alt="Module image" />
+                          <img src="<%= config.pages.main.body.bigCards.loadedModules.body.items.style.img.path %>"
+                            alt="<%= config.pages.main.body.bigCards.loadedModules.body.items.style.img.alt %>" />
                         </div>
                       </div>
                       <div class="yoo-media-meta">
                         <div class="yoo-height-b5 yoo-height-lg-b5"></div>
                         <h2 class="yoo-media-title yoo-margin-bottom-0 yoo-margin-top-2">
-                          <%= modules[i].replace(` (${badge})`, "") %>
+                          <%= data.modules[i].replace(` (${badge})`, "") %>
                         </h2>
                         <!-- <div class="yoo-media-subtitle">dc@gmail.com</div> -->
                       </div>
@@ -175,8 +180,8 @@
               <div class="yoo-card-heading-left">
                 <h2 class="yoo-card-title">
                   <span class="yoo-card-title-icon yoo-green-bg">
-                    <ion-icon name="cube"></ion-icon>
-                  </span>VIRTUALHOSTS
+                    <ion-icon name="<%= config.pages.main.body.bigCards.virtualhosts.style.icon %>"></ion-icon>
+                  </span><%= config.pages.main.body.bigCards.virtualhosts.title %>
                 </h2>
               </div>
             </div>
@@ -184,9 +189,13 @@
               <div class="yoo-padd-lr-20">
                 <div class="yoo-sidebar-search">
                   <form action="#" class="yoo-search yoo-style1 yoo-search-md">
-                    <input type="text" placeholder="Search..." class="yoo-search-input" onkeyup="searchVH(this)" />
+                    <input type="text"
+                      placeholder="<%= config.pages.main.body.bigCards.virtualhosts.body.search.placeholder %>"
+                      class="yoo-search-input" onkeyup="searchVH(this)" />
                     <button class="yoo-search-submit">
-                      <ion-icon name="search" role="img" class="md hydrated" aria-label="search"></ion-icon>
+                      <ion-icon name="<%= config.pages.main.body.bigCards.virtualhosts.body.search.icon %>" role="img"
+                        class="md hydrated"
+                        aria-label="<%= config.pages.main.body.bigCards.virtualhosts.body.search.icon %>"></ion-icon>
                     </button>
                   </form>
                 </div>
@@ -195,35 +204,37 @@
                       justify-content: space-around;
                       padding-top: 10px;
                     ">
-                  <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-info"
-                    onclick="location.href = '/createNew';">
-                    Create new
+                  <button type="button" href="<%= config.pages.createNew.path %>" ripple="ripple" ripple-color="#fff"
+                    class="<%= config.pages.main.body.bigCards.virtualhosts.body.createVHBTN.style.class %>">
+                    <%= config.pages.main.body.bigCards.virtualhosts.body.createVHBTN.title %>
                   </button>
                 </div>
                 <div class="yoo-height-b20 yoo-height-lg-b20"></div>
 
                 <ul class="yoo-list-group yoo-style1 yoo-mp0" id="virtualhost_list">
-                  <% for(var i = 0; i < virtualhosts.length; i++) { %>
+                  <% for(var i = 0; i < data.virtualhosts.length; i++) { %>
                   <li>
-                    <div class="yoo-medias yoo-style1">
+                    <div class="<%= config.pages.main.body.bigCards.virtualhosts.body.items.style.class %>">
                       <div class="yoo-media-img">
-                        <img src="assets/img/virtualhost.png" alt="Virtualhost image" />
+                        <img src="<%= config.pages.main.body.bigCards.virtualhosts.body.items.style.img.path %>"
+                          alt="Virtualhost image" />
                       </div>
                       <div class="yoo-media-meta">
                         <h2 class="yoo-media-title yoo-margin-bottom-0">
-                          <%= virtualhosts[i].domain %>
+                          <%= data.virtualhosts[i].domain %>
                         </h2>
                         <div class="yoo-media-subtitle">
-                          <%= virtualhosts[i].vhConfigPath %>
+                          <%= data.virtualhosts[i].vhConfigPath %>
                         </div>
                       </div>
                       <div style="display: flex; justify-content: flex-end;">
-                        <button type="button" ripple="ripple" ripple-color="#fff" class="btn btn-danger btn-sm col-sm-2"
-                          onclick="disableVH('<%= virtualhosts[i].fileName %>')">
-                          Disable
+                        <button type="button" ripple="ripple" ripple-color="#fff"
+                          class="<%= config.pages.main.body.bigCards.virtualhosts.body.items.disableBTN.style.class %>"
+                          onclick="disableVH('<%= data.virtualhosts[i].fileName %>')">
+                          <%= config.pages.main.body.bigCards.virtualhosts.body.items.disableBTN.title %>
                         </button>
                       </div>
-                      <span class="yoo-media-tag"><%= virtualhosts[i].port %></span>
+                      <span class="yoo-media-tag"><%= data.virtualhosts[i].port %></span>
                     </div>
                   </li>
                   <% } %>
@@ -257,20 +268,26 @@
   <script src="assets/js/jquery-1.12.4.min.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/iDashboard.js?v=0.06"></script>
-  <script src="assets/js/ionicons/ionicons.js"></script>
+  <script  src="assets/js/ionicons/ionicons.js"></script>
   <script src="assets/js/toastr.min.js"></script>
+  <script src="assets/js/iApache2.js"></script>
   <script>
-    const errors = <%- JSON.stringify(err) %>;
+    var errors = <%- JSON.stringify(data.err) %>;
+    var warns = <%- JSON.stringify(data.warn) %>;
     if (errors.length > 0) {
       for (let i = 0; i < errors.length; i++) {
         const error = errors[i];
         if (error.length > 0) toastr.error(error)
-
+      }
+    }
+    if (warns.length > 0) {
+      for (let i = 0; i < warns.length; i++) {
+        const warn = warns[i];
+        if (warn.length > 0) toastr.warning(warn)
       }
     }
     function searchVH(input) {
       var input, filter, ul, li, domain, i, txtValue;
-      // input = document.getElementById("myInput");
       filter = input.value.toUpperCase();
       ul = document.getElementById("virtualhost_list");
       li = ul.children;
@@ -286,9 +303,9 @@
     }
     function disableVH(fileName) {
       var http = new XMLHttpRequest();
-      var url = '/disableVH.post';
+      var url = '<%= config.endpoints.disableVH.path %>';
       var params = `fileName=${fileName}`;
-      http.open('POST', url, true);
+      http.open('<%= config.endpoints.disableVH.method %>', url, true);
 
       http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
@@ -303,22 +320,30 @@
     function proccessOutput(obj) {
       if (obj.err) {
         toastr.error(obj.err)
-
       } else if (obj.code == 0 && obj.msg) {
         toastr.success(obj.msg)
+      } else if (obj.msg) {
+        toastr.info(obj.msg)
       }
     }
 
     function reloadApache() {
-      toastr.info('Success', "Reloading apache2")
       var http = new XMLHttpRequest();
-      var url = '/apache2Reload.post';
-      http.open('POST', url, true);
+      var url = '<%= config.endpoints.reloadApache2.path %>';
+      http.open('<%= config.endpoints.reloadApache2.method %>', url, true);
 
       http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      http.onreadystatechange = function () {//Call a function when the state changes.
+        if (http.readyState == 4) {
+          if (http.status == 200) {
+            proccessOutput(JSON.parse(http.responseText))
+          } else {
+            toastr.info("<%= config.pages.main.body.alertMessages.apache2Reloading %>")
+          }
+        }
 
+      }
       http.send();
-
     }
   </script>
 </body>
