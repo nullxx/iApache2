@@ -1,5 +1,11 @@
 const { executeCommand } = require("../Command");
 const { getCommand } = require("../Utils");
+const Config = require('../Config');
+
+const https = require('follow-redirects').https;
+const path = require('path')
+const fs = require('fs');
+
 module.exports = class Apache {
     static getModules = () => {
         return new Promise((res) => {
@@ -87,6 +93,33 @@ module.exports = class Apache {
                         res({ code, msg: stdout, err: stderr })
                     }
                 })
+        })
+    }
+    static isLatest = () => {
+        return new Promise((res, rej) => {
+            https.get(Config.global.version.link, (resp) => {
+                let onlineVersion = '';
+    
+                resp.on('data', (chunk) => {
+                    onlineVersion += chunk;
+                });
+    
+                resp.on('end', () => {
+                    fs.readFile(path.join(__dirname, '../../version'), 'utf8', function (err, currentVersion) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        if (onlineVersion == currentVersion) {
+                            res(true)
+                        } else {
+                            res(false)
+                        }
+                    });
+                });
+    
+            }).on("error", (err) => {
+                rej(err)
+            });
         })
     }
 }

@@ -1,23 +1,23 @@
 var express = require('express');
 var router = express.Router();
-const Apache = require('../src/Apache')
+const iApache2 = require('../src/iApache2')
 const Config = require('../src/Config')
-const { isLatest } = require('../src/Version')
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  isLatest().then(lastest => {
+  iApache2.isLatest().then(lastest => {
     const warn1 = !lastest ? Config.global.version.outdated.msg : null
-    Apache.getModules()
+    iApache2.getModules()
       .then((modulesData) => {
         const modules = modulesData.modules;
         const err1 = modulesData.err;
 
-        Apache.getVirtualHosts().then((virtualhostsData) => {
+        iApache2.getVirtualHosts().then((virtualhostsData) => {
           const virtualhosts = virtualhostsData.virtualhosts;
           const err2 = virtualhostsData.err;
 
-          Apache.getStatus().then((statusData) => {
+          iApache2.getStatus().then((statusData) => {
             const status = statusData.status;
             const err3 = statusData.err;
 
