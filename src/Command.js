@@ -19,7 +19,7 @@ module.exports = {
                 });
                 sp.on('error', (err) => {
                     // will mix stderr with err
-                    stderr += err;
+                    stderr += err.message;
                 })
                 sp.on('close', code => {
                     res({ stdout, stderr, code })
