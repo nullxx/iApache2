@@ -73,7 +73,7 @@ module.exports = class Apache {
         return new Promise((res) => {
             executeCommand(getCommand("status").cmd, getCommand("status").args)
                 .then(({ stdout, stderr, code }) => {
-                    res({ code, msg: stdout.match(/Active: [^\n]*/) ? stdout.match(/Active: [^\n]*/)[0] : "", err: stderr })
+                    res({ code, status: stdout.match(/Active: [^\n]*/) ? stdout.match(/Active: [^\n]*/)[0] : "", err: stderr })
                 })
         })
     }

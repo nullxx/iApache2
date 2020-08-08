@@ -10,19 +10,16 @@ router.get('/', function (req, res, next) {
       Apache.getVirtualHosts().then((virtualhostsData) => {
         const virtualhosts = virtualhostsData.virtualhosts;
         const err2 = virtualhostsData.err;
-        res.render('index', { modules, virtualhosts, err: [err1, err2] })
+        Apache.getStatus().then((statusData) => {
+          const status = statusData.status;
+          const err3 = statusData.err;
+          res.render('index', { modules, virtualhosts, status, err: [err1, err2, err3] })
+        })
       })
     })
 });
 router.get('/createNew', function (req, res, next) {
   res.render('createNew')
 });
-router.get('/status.get', function (req, res, next) {
-  Apache.getStatus()
-    .then(response => {
-      res.send(response)
-    })
-});
-
 
 module.exports = router;
