@@ -5,6 +5,7 @@ const Config = require('../Config');
 const https = require('follow-redirects').https;
 const path = require('path')
 const fs = require('fs');
+const Utils = require("../Utils");
 
 module.exports = class Apache {
     static getModules = () => {
@@ -23,7 +24,7 @@ module.exports = class Apache {
         })
 
     }
-    static getVirtualHosts = () => {
+    static getEnabledVirtualHosts = () => {
         return new Promise((res) => {
             executeCommand(getCommand("listVirtualHost").cmd, getCommand("listVirtualHost").args)
                 .then(({ stdout, stderr }) => {
@@ -48,8 +49,24 @@ module.exports = class Apache {
                 })
         })
     }
+    static listSitesAvailable() {
+        // TODO
+    }
+    static readVH(vhName) {
+        return new Promise(function (res, rej) {
+            if (!vhName) return rej({ code: 0, err: "Missing vhName." })
+            // Utils.readFile(`${Config.global.apacheSitesAvailablePath}/${vhName}`, Config.global.encoding)
+            //     .then(data => {
+            res({ code: 1, data })
+            // })
+            // .catch(err => {
+            //     rej({ code: 0, err: err.message })
+            // })
+        })
+    }
     static disableVH(vhFile) {
         return new Promise((res) => {
+            if (!vhFile) return rej({ code: 0, err: "Missing VHFile." })
             executeCommand(getCommand("disableVH").cmd, [vhFile])
                 .then(({ stdout, stderr, code }) => {
                     res({ code, msg: stdout, err: stderr })
@@ -57,9 +74,8 @@ module.exports = class Apache {
         })
     }
     static createVH(path, virtualhostContent) {
+        if (!path || !virtualhostContent) return rej({ code: 0, err: "Missing path or virtualHostContent" })
         return new Promise((res) => {
-            const fs = require('fs');
-
             fs.writeFile(path, virtualhostContent, function (err) {
                 if (err) {
                     return res({ code: 0, msg: null, err });
@@ -99,11 +115,11 @@ module.exports = class Apache {
         return new Promise((res, rej) => {
             https.get(Config.global.version.link, (resp) => {
                 let onlineVersion = '';
-    
+
                 resp.on('data', (chunk) => {
                     onlineVersion += chunk;
                 });
-    
+
                 resp.on('end', () => {
                     fs.readFile(path.join(__dirname, '../../version'), 'utf8', function (err, currentVersion) {
                         if (err) {
@@ -116,7 +132,7 @@ module.exports = class Apache {
                         }
                     });
                 });
-    
+
             }).on("error", (err) => {
                 rej(err)
             });

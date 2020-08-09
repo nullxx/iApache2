@@ -227,11 +227,16 @@
                           <%= data.virtualhosts[i].vhConfigPath %>
                         </div>
                       </div>
-                      <div style="display: flex; justify-content: flex-end;">
+                      <div style="display: flex; justify-content: space-around; padding: 5px;">
                         <button type="button" ripple="ripple" ripple-color="#fff"
                           class="<%= config.pages.main.body.bigCards.virtualhosts.body.items.disableBTN.style.class %>"
                           onclick="disableVH('<%= data.virtualhosts[i].fileName %>')">
                           <%= config.pages.main.body.bigCards.virtualhosts.body.items.disableBTN.title %>
+                        </button>
+                        <button type="button" ripple="ripple" ripple-color="#fff"
+                          class="<%= config.pages.main.body.bigCards.virtualhosts.body.items.displayBTN.style.class %>"
+                          onclick="displayVHContent('<%= data.virtualhosts[i].fileName %>')">
+                          <%= config.pages.main.body.bigCards.virtualhosts.body.items.displayBTN.title %>
                         </button>
                       </div>
                       <span class="yoo-media-tag"><%= data.virtualhosts[i].port %></span>
@@ -268,7 +273,7 @@
   <script src="assets/js/jquery-1.12.4.min.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/iDashboard.js?v=0.06"></script>
-  <script  src="assets/js/ionicons/ionicons.js"></script>
+  <script src="assets/js/ionicons/ionicons.js"></script>
   <script src="assets/js/toastr.min.js"></script>
   <script src="assets/js/iApache2.js"></script>
   <script>
@@ -277,13 +282,13 @@
     if (errors.length > 0) {
       for (let i = 0; i < errors.length; i++) {
         const error = errors[i];
-        if (error.length > 0) toastr.error(error)
+        if (error && error.length > 0) toastr.error(error)
       }
     }
     if (warns.length > 0) {
       for (let i = 0; i < warns.length; i++) {
         const warn = warns[i];
-        if (warn.length > 0) toastr.warning(warn)
+        if (warn && warn.length > 0) toastr.warning(warn)
       }
     }
     function searchVH(input) {
@@ -316,7 +321,109 @@
       }
       http.send(params);
     }
+    function displayVHContent(vhName) {
+      var http = new XMLHttpRequest();
+      var url = '<%= config.endpoints.readVH.path %>';
+      var params = `vhName=${vhName}`;
+      http.open('<%= config.endpoints.readVH.method %>', url, true);
 
+      http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      http.onreadystatechange = function () {//Call a function when the state changes.
+        if (http.readyState == 4 && http.status == 200) {
+          const parsed = JSON.parse(http.responseText);
+          if (parsed.code == 0) {
+            proccessOutput(parsed);
+          } else {
+            const card = document.createElement('div');
+            card.classList.add("card", "border-primary", "mb-3", "border-card");
+
+            const cardHeader = document.createElement('div');
+            cardHeader.classList.add("card-header");
+            cardHeader.textContent = vhName;
+
+            const cardBody = document.createElement('div');
+            cardBody.classList.add("card-body");
+
+            const content = document.createElement('p');
+            content.style.fontFamily = 'Courier';
+            content.textContent = parsed.data;
+            cardBody.appendChild(content);
+            card.appendChild(cardHeader);
+            card.appendChild(cardBody);
+            createModal(card);
+          }
+
+        }
+      }
+      http.send(params);
+    }
+    function createModal(content, modalId) {
+      const id = modalId || "modal";
+      const modal = document.createElement('div');
+      modal.classList.add("modal", "fade", "bd-example-modal-lg")
+      modal.setAttribute("tabindex", "-1");
+      modal.setAttribute("role", "dialog");
+      modal.setAttribute("aria-hidden", "true");
+      modal.setAttribute("id", id)
+
+      const modalChild = document.createElement('div');
+      modalChild.classList.add("modal-dialog", "modal-lg");
+
+      const modalContent = document.createElement('div');
+      modalContent.classList.add("modal-content");
+
+      const modalHeader = document.createElement('div');
+      modalHeader.classList.add("modal-header");
+
+      const modalHeaderTitle = document.createElement('h5');
+      modalHeaderTitle.classList.add("modal-title");
+      modalHeaderTitle.textContent = "<%= config.pages.main.body.displayContentModal.modalTitle %>"
+
+      const closeBtn = document.createElement('button');
+      closeBtn.type = "button";
+      closeBtn.classList.add("close");
+      closeBtn.setAttribute("data-dismiss", "modal");
+      closeBtn.setAttribute("aria-label", "Close");
+
+      const closeIcon = document.createElement("ion-icon");
+      closeIcon.setAttribute("name", "close");
+      closeIcon.setAttribute("role", "img");
+      closeIcon.classList.add("md", "hydrated");
+      closeIcon.setAttribute("aria-label", "close");
+
+
+
+      const modalBody = document.createElement('div');
+      modalBody.classList.add("modal-body");
+      modalBody.appendChild(content)
+
+      const modalFooter = document.createElement('div');
+      modalFooter.classList.add("modal-footer");
+      modalFooter.appendChild(closeBtn);
+
+      closeBtn.appendChild(closeIcon);
+
+      modalHeader.appendChild(modalHeaderTitle);
+
+      modalHeader.appendChild(closeBtn);
+
+
+      modalContent.appendChild(modalHeader);
+
+      modalContent.appendChild(modalBody);
+      modalContent.appendChild(modalFooter);
+
+      modalChild.appendChild(modalContent);
+      modal.appendChild(modalChild);
+      $("body")[0].appendChild(modal);
+      $(`#${id}`).modal()
+      $(`#${id}`).on('hidden.bs.modal', function () {
+
+        $(`#${id}`).remove()
+      })
+
+    }
     function proccessOutput(obj) {
       if (obj.err) {
         toastr.error(obj.err)

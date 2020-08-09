@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
         const modules = modulesData.modules;
         const err1 = modulesData.err;
 
-        iApache2.getVirtualHosts().then((virtualhostsData) => {
+        iApache2.getEnabledVirtualHosts().then((virtualhostsData) => {
           const virtualhosts = virtualhostsData.virtualhosts;
           const err2 = virtualhostsData.err;
 
