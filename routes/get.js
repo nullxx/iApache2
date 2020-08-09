@@ -7,7 +7,7 @@ const Config = require('../src/Config')
 router.get('/', function (req, res, next) {
 
   iApache2.isLatest().then(lastest => {
-    const warn1 = !lastest ? Config.global.version.outdated.msg : null
+    const warn1 = !lastest ? Config.global.version.outdated.msg : undefined;
     iApache2.getModules()
       .then((modulesData) => {
         const modules = modulesData.modules;

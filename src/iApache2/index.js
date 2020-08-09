@@ -55,13 +55,13 @@ module.exports = class Apache {
     static readVH(vhName) {
         return new Promise(function (res, rej) {
             if (!vhName) return rej({ code: 0, err: "Missing vhName." })
-            // Utils.readFile(`${Config.global.apacheSitesAvailablePath}/${vhName}`, Config.global.encoding)
-            //     .then(data => {
+            Utils.readFile(`${Config.global.apacheSitesAvailablePath}/${vhName}`, Config.global.encoding)
+                .then(data => {
             res({ code: 1, data })
-            // })
-            // .catch(err => {
-            //     rej({ code: 0, err: err.message })
-            // })
+            })
+            .catch(err => {
+                rej({ code: 0, err: err.message })
+            })
         })
     }
     static disableVH(vhFile) {
