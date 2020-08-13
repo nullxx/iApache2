@@ -144,7 +144,7 @@
     function createVH() {
       var http = new XMLHttpRequest();
       var url = '<%= config.endpoints.createVH.path %>';
-      var params = `path=${document.getElementById("savePath").textContent}&vhContent=${document.getElementById("virtualhostContent").textContent}`;
+      var params = `path=${document.getElementById("savePath").textContent}&vhContent=${document.getElementById("virtualhostContent").value}`;
       http.open('<%= config.endpoints.createVH.method %>', url, true);
 
       http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
