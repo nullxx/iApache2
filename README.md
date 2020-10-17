@@ -12,6 +12,9 @@
 
 ## About
 iApache2 is a **BASIC** GUI to manage apache2 settings.
+
+## Requirements
+* Nodejs >= v10.x
 ## Install
 
 One command install 
