@@ -19,4 +19,4 @@ systemctl daemon-reload
 systemctl reset-failed
 echo "Removing local repository"
 rm -rf $TARGET_DIR
-echo "SUCESS"
+echo "SUCCESS"
