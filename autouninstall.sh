@@ -7,6 +7,7 @@ fi
 
 SERVICE_NAME=iApache2
 SERVICE_PATH=/etc/systemd/system/$SERVICE_NAME.service
+TARGET_DIR=/opt/iApache2
 echo "Stop $SERVICE_NAME service"
 systemctl stop $SERVICE_NAME
 echo "Disable $SERVICE_NAME service"
@@ -16,4 +17,6 @@ rm $SERVICE_PATH
 echo "Reloading daemon"
 systemctl daemon-reload
 systemctl reset-failed
+echo "Removing local repository"
+rm -rf $TARGET_DIR
 echo "SUCESS"
