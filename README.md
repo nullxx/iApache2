@@ -4,6 +4,7 @@
 - [iApache2](#iapache2)
   - [Index](#index)
   - [About](#about)
+  - [Requirements](#requirements)
   - [Install](#install)
   - [Uninstall](#uninstall)
   - [Usage](#usage)
@@ -19,19 +20,26 @@ iApache2 is a **BASIC** GUI to manage apache2 settings.
 
 One command install 
 
+```bash
+sudo wget -q -O - https://github.com/nullxx/iApache2/raw/master/autoinstall.sh | bash
+```
 
-    sudo wget -q -O - https://github.com/nullxx/iApache2/raw/master/autoinstall.sh | bash
+* Program is stored at `/opt/iApache2`
 
-Program is stored at `/opt/iApache2`
+* Default PORT: `3000`
 
-Default PORT: `3000`
+* Basic Auth: 
+  * user: admin
+  * password: password
 
 ## Uninstall
 
 One command uninstall 
 
 
-    sudo wget -q -O - https://github.com/nullxx/iApache2/raw/master/autouninstall.sh | bash
+```bash
+sudo wget -q -O - https://github.com/nullxx/iApache2/raw/master/autouninstall.sh | bash
+```
 ## Usage
 
 iApache2 will be hosted at http://localhost:3000
