@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const basicAuth = require('express-basic-auth');
 var path = require('path');
 
 var getRouter = require('./routes/get');
@@ -11,6 +12,11 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
+
+app.use(basicAuth({
+  users: { admin: 'password' },
+  challenge: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
